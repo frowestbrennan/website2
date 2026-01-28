@@ -422,13 +422,15 @@ a {
 
 .sub-page-header {
     max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 4rem;
     padding-top: 4rem;
 }
 
 /* Content Container - box around text */
 .content-container {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 2.5rem 3rem;
     backdrop-filter: blur(8px);
