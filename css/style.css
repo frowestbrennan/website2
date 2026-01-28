@@ -1,0 +1,637 @@
+/* ============================================
+   Base Styles
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ============================================
+   Home Page
+   ============================================ */
+
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Video Background */
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    /* Placeholder gradient until video loads */
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 110%;
+    min-height: 110%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Content Container */
+.home-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30vh;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 6rem;
+}
+
+/* Header (Title + Intro) */
+.home-header {
+    text-align: center;
+    padding: 2.5rem 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-bottom: 60vh;
+}
+
+.site-title {
+    font-size: 2.25rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.25rem;
+}
+
+/* Intro Text */
+.intro-text {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    text-align: center;
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: 2rem;
+}
+
+/* Scroll Hint */
+.scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.6;
+    animation: fadeInUp 1s ease 0.5s both;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-hint span {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.scroll-arrow {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, #fff, transparent);
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(8px); opacity: 0.5; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 0.6; transform: translateY(0); }
+}
+
+/* Home Navigation */
+.home-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+/* Nav items start small and scale up on scroll */
+.nav-item {
+    font-size: 1.125rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.875rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    /* Start small and invisible */
+    transform: scale(0.7);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-item.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.nav-item.visible:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+/* Contact Button */
+.contact-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* ============================================
+   Category Pages (360 Background)
+   ============================================ */
+
+.category-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 360 Background Container */
+.pano-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.pano-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 115%;
+    width: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+}
+
+.pano-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+/* Category Navigation */
+.category-nav {
+    position: fixed;
+    left: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.category-title {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+}
+
+.category-link {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.category-link:hover {
+    opacity: 1;
+    transform: translateX(0.5rem);
+}
+
+/* Back Button */
+.back-btn {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    opacity: 1;
+}
+
+.back-btn::before {
+    content: '← ';
+}
+
+/* ============================================
+   Work Page (Portfolio Grid)
+   ============================================ */
+
+.work-page {
+    min-height: 100vh;
+    padding: 6rem 4rem;
+    background: #0a0a0a;
+    overflow-y: auto;
+}
+
+.work-header {
+    margin-bottom: 4rem;
+}
+
+.work-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.work-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #1a1a1a;
+    cursor: pointer;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-info {
+    transform: translateY(0);
+}
+
+.portfolio-info h3 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.portfolio-info p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================
+   Sub-pages
+   ============================================ */
+
+.sub-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 6rem 4rem;
+    background: #0a0a0a;
+    overflow-y: auto;
+}
+
+/* 360 background support for sub-pages */
+.sub-page .pano-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.sub-page .pano-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.sub-page-header,
+.sub-page .services-section,
+.sub-page .portfolio-section {
+    position: relative;
+    z-index: 10;
+}
+
+.sub-page .back-btn,
+.sub-page .contact-btn {
+    z-index: 100;
+}
+
+.sub-page-header {
+    max-width: 800px;
+    margin-bottom: 4rem;
+    padding-top: 4rem;
+}
+
+/* Content Container - box around text */
+.content-container {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 2.5rem 3rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.sub-page-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.sub-page-description {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.sub-page-description a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+}
+
+.sub-page-description a:hover {
+    color: #fff;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 2rem;
+}
+
+/* Services Section */
+.services-section {
+    margin-bottom: 4rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    margin-bottom: 4rem;
+}
+
+/* ============================================
+   Content Images (inline with text)
+   ============================================ */
+
+.content-image {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.content-image:hover img {
+    transform: scale(1.03);
+}
+
+.content-image figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hero image - full width after intro */
+.hero-image {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    margin: 2.5rem 0;
+}
+
+/* Image floated right */
+.image-right {
+    float: right;
+    width: 45%;
+    max-width: 400px;
+    margin: 0.5rem 0 1.5rem 2rem;
+    aspect-ratio: 4 / 3;
+}
+
+/* Image floated left */
+.image-left {
+    float: left;
+    width: 45%;
+    max-width: 400px;
+    margin: 0.5rem 2rem 1.5rem 0;
+    aspect-ratio: 4 / 3;
+}
+
+/* Two-column image row */
+.image-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.image-row .content-image {
+    aspect-ratio: 4 / 3;
+}
+
+/* Clear floats */
+.text-block {
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.15em;
+    }
+
+    .intro-text {
+        font-size: 0.9rem;
+    }
+
+    .home-nav {
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .nav-item {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .category-nav {
+        left: 2rem;
+        right: 2rem;
+        top: auto;
+        bottom: 4rem;
+        transform: none;
+    }
+
+    .work-page,
+    .sub-page {
+        padding: 4rem 2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
