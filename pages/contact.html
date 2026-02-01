@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Forrest Brennan</title>
+    <meta name="description" content="Get in touch with Forrest Brennan for 360 video, VR filming, live event coverage, and post-production services.">
+    <meta name="keywords" content="contact, hire videographer, 360 video quote, VR filming inquiry">
+    <link rel="canonical" href="https://forrestbrennan.com/pages/contact.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="sub-page contact-page">
+        <!-- Back Button -->
+        <a href="../index.html" class="back-btn">Home</a>
+
+        <!-- Header -->
+        <header class="sub-page-header content-container">
+            <h1 class="sub-page-title">Contact</h1>
+            <p class="sub-page-description">
+                Have a project in mind? Fill out the form below and I'll get back to you.
+            </p>
+
+            <form class="contact-form" action="https://formsubmit.co/forresttbrennan@gmail.com" method="POST">
+                <!-- FormSubmit configuration -->
+                <input type="hidden" name="_subject" value="New inquiry from forrestbrennan.com">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://forrestbrennan.com/pages/contact.html?sent=true">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <p class="sub-page-description" style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+                Or email directly: <a href="mailto:forresttbrennan@gmail.com">forresttbrennan@gmail.com</a>
+            </p>
+        </header>
+    </div>
+
+    <script src="../js/main.js"></script>
+
+    <script>
+        // Show success message if form was submitted
+        if (window.location.search.includes('sent=true')) {
+            const form = document.querySelector('.contact-form');
+            form.innerHTML = '<p class="success-message">Thanks for reaching out! I\'ll get back to you soon.</p>';
+        }
+    </script>
+</body>
+</html>

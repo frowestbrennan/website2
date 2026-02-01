@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forrest Brennan | Immersive 360 & VR Video Specialist</title>
-    <meta name="description" content="Forrest Brennan is an Immersive video specialist offering 360°, VR, and dome filming plus expert post-production. Hire for your next Immersive project.">
-    <meta name="keywords" content="immersive video, 360 video, dome filming, VFX, video editing, virtual tour, VR production">
+    <meta name="description" content="Forrest Brennan is an Immersive video specialist offering 360°, VR, and dome filming plus expert post-production. Serving Tucson AZ, Santa Fe NM, Portland OR and worldwide.">
+    <meta name="keywords" content="immersive video, 360 video, dome filming, VFX, video editing, virtual tour, VR production, live event filming, Tucson videographer, Santa Fe videographer, Portland videographer, Arizona video production, New Mexico video production, Oregon video production">
     <link rel="canonical" href="https://forrestbrennan.com/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +45,24 @@
         </div>
 
         <!-- Contact Button -->
-        <a href="mailto:forresttbrennan@gmail.com" class="contact-btn">Contact</a>
+        <a href="pages/contact.html" class="contact-btn">Contact</a>
+
+        <!-- SEO Expandable Section -->
+        <div class="seo-expand">
+            <button class="seo-toggle" aria-expanded="false" aria-controls="seo-content">
+                <span class="seo-icon">○</span>
+            </button>
+            <div class="seo-content" id="seo-content">
+                <div class="seo-section">
+                    <h2>Locations</h2>
+                    <p>Tucson, AZ · Santa Fe, NM · Portland, OR · Los Angeles, CA · Worldwide</p>
+                </div>
+                <div class="seo-section">
+                    <h2>Services</h2>
+                    <p>360 Video Production · VR Filming · VR 180 · Dome Content · Immersive Video · Live Event Filming · Concert Videography · Wedding Video · Podcast Video · Drone Cinematography · Underwater 360 · Video Editing · VFX · Virtual Tours · 3D Modeling</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/main.js"></script>
@@ -59,7 +76,13 @@
         "description": "Immersive video specialist offering 360°, VR, and dome filming plus expert post-production services.",
         "url": "https://forrestbrennan.com",
         "serviceType": ["Immersive Video Production", "360 Video", "VR Filming", "VR Post-Production", "Dome Filming", "VFX"],
-        "areaServed": "Worldwide",
+        "areaServed": [
+            {"@type": "City", "name": "Tucson", "containedInPlace": {"@type": "State", "name": "Arizona"}},
+            {"@type": "City", "name": "Santa Fe", "containedInPlace": {"@type": "State", "name": "New Mexico"}},
+            {"@type": "City", "name": "Portland", "containedInPlace": {"@type": "State", "name": "Oregon"}},
+            {"@type": "City", "name": "Los Angeles", "containedInPlace": {"@type": "State", "name": "California"}},
+            "Worldwide"
+        ],
         "knowsAbout": ["360 Video", "VR 180", "Immersive Filmmaking", "Dome Content", "VR Post-Production"]
     }
     </script>

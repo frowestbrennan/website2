@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initMouseTracking();
     initScrollAnimations();
+    initSeoToggle();
 });
 
 function initMouseTracking() {
@@ -122,3 +123,31 @@ window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     });
 });
+
+/**
+ * SEO Toggle - Expandable locations/services section
+ */
+function initSeoToggle() {
+    const toggle = document.querySelector('.seo-toggle');
+    const content = document.querySelector('.seo-content');
+
+    if (!toggle || !content) return;
+
+    const icon = toggle.querySelector('.seo-icon');
+
+    toggle.addEventListener('click', () => {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !isExpanded);
+        content.classList.toggle('active');
+        icon.textContent = isExpanded ? '○' : '●';
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.seo-expand')) {
+            toggle.setAttribute('aria-expanded', 'false');
+            content.classList.remove('active');
+            icon.textContent = '○';
+        }
+    });
+}
