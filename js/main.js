@@ -17,7 +17,15 @@ function initMouseTracking() {
 
     if (!target) return;
 
-    // Configuration
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    if (isMobile) {
+        // Mobile: slow auto-pan loop
+        initAutoPan(target);
+        return;
+    }
+
+    // Desktop: mouse tracking
     const config = {
         sensitivity: 0.12,
         smoothing: 0.06,
@@ -52,6 +60,35 @@ function initMouseTracking() {
     }
 
     animate();
+}
+
+/**
+ * Mobile Auto-Pan
+ * Slowly drifts the background image side to side
+ */
+function initAutoPan(target) {
+    const maxOffset = 200;
+    const speed = 0.0001; // Very slow drift
+    const rampDuration = 6000; // 6 seconds to reach full motion
+    let startTime = null;
+
+    function animate(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+
+        // Ease in: ramp from 0 to 1 over rampDuration
+        const ramp = Math.min(elapsed / rampDuration, 1);
+        const easedRamp = ramp * ramp; // Quadratic ease-in
+
+        // Sine wave scaled by eased ramp
+        const offsetX = Math.sin(elapsed * speed) * maxOffset * easedRamp;
+
+        target.style.transform = `translate(calc(-50% + ${offsetX}px), -50%)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
 }
 
 /**
