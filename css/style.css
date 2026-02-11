@@ -20,6 +20,27 @@ a {
     text-decoration: none;
 }
 
+/* Skip to Content (accessibility) */
+.skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.75rem 1.5rem;
+    background: #fff;
+    color: #000;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+    top: 1rem;
+}
+
 /* ============================================
    Home Page
    ============================================ */
@@ -879,13 +900,27 @@ a {
     }
 
     /* --- Floated images → full width on mobile --- */
+    /* Images sit tight above their following paragraph, with
+       more space above to separate from the previous paragraph */
 
     .image-right,
     .image-left {
         float: none;
         width: 100%;
         max-width: 100%;
-        margin: 1.25rem 0;
+        margin: 2rem 0 0.5rem 0;
+    }
+
+    /* First image right after the title needs less top margin */
+    .sub-page-title + .image-right,
+    .sub-page-title + .image-left {
+        margin-top: 1rem;
+    }
+
+    /* Paragraph right after an image — keep it close */
+    .image-right + .sub-page-description,
+    .image-left + .sub-page-description {
+        margin-top: 0.5rem !important;
     }
 
     .hero-image {
