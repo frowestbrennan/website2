@@ -1036,6 +1036,10 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .portfolio-info {
+        transform: translateY(0);
+    }
+
     /* --- Work page --- */
 
     .work-title {
