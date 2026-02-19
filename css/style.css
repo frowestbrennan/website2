@@ -980,6 +980,7 @@ a {
         width: 100%;
         max-width: 100%;
         margin: 2rem 0 0.5rem 0;
+        display: block;
     }
 
     /* First image right after the title needs less top margin */
