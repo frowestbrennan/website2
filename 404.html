@@ -64,8 +64,12 @@
     </div>
     <script>
         // Redirect known pages that live under /pages/
-        var defined = ['filming','filming-immersive','drone','live-events','editing-vfx','editing-immersive','editing-traditional','app-dev','vr-experiences','contact'];
+        var defined = ['filming','filming-immersive','drone','live-events','editing-vfx','editing-immersive','editing-traditional','app-dev','vr-for-events','contact'];
         var path = window.location.pathname;
+        // Redirect old vr-experiences URL to new vr-for-events
+        if (path === '/pages/vr-experiences.html' || path === '/vr-experiences.html') {
+            window.location.replace('/pages/vr-for-events.html');
+        }
         for (var i = 0; i < defined.length; i++) {
             if (path === '/' + defined[i] + '.html') {
                 window.location.replace('/pages/' + defined[i] + '.html');
